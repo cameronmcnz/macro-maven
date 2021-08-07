@@ -22,7 +22,7 @@ public class WebpageFactory {
 				+ "         <a href=\"playthegame?guess=8\" class=\"btn btn-light\"> 8 </a> &nbsp;\r\n"
 				+ "         <a href=\"playthegame?guess=9\" class=\"btn btn-primary\"> 9 </a> &nbsp;\r\n"
 				+ "         <a href=\"playthegame?guess=10\" class=\"btn btn-danger\">10</a> &nbsp;\r\n"
-				+ "      <div id=\"results\">The gameplay results will appear here.</div>\r\n"
+				+ "      <div id=\"results\">The gameplay results will appear hear.</div>\r\n"
 				+ "   </body>\r\n"
 				+ "</html>";
 		return page;
