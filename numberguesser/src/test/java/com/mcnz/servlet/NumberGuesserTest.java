@@ -21,7 +21,7 @@ public class NumberGuesserTest {
 	
 	@Test
 	public void testWinLogic() {
-		Assert.assertTrue(true);
+		Assert.assertTrue(false);
 	}
 
 }

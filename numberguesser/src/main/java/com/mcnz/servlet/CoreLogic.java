@@ -23,6 +23,7 @@ public class CoreLogic {
 			Object magicNumberString = request.getSession().getAttribute("magicnumber");
 			if (magicNumberString!=null) {
 				magicNumber = Integer.parseInt(magicNumberString.toString());
+				magicNumber = Math.abs(magicNumber)
 				System.out.println("Just calculated number " + magicNumber);
 			} else {
 				magicNumber = ((new java.util.Random().nextInt() % 10) +1);
