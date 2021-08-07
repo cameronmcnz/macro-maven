@@ -31,7 +31,18 @@ NOTE: in eclipse the URL will likely be:
 
 http://localhost:8080/numberguesser/playthegame
 
+Other Maven commands include:
+
+mvn clean
+
+mvn test
+
+mvn compile
+
+mvn package
+
 **/
+
 @WebServlet(name = "playthegame", urlPatterns = { "/playthegame" })
 public class NumberGuesserGame extends HttpServlet {
 	private static final long serialVersionUID = 1L;
