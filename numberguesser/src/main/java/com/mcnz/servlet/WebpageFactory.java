@@ -10,7 +10,7 @@ public class WebpageFactory {
 				+ "   </head>\r\n"
 				+ "   <body style=\"padding:50\">\r\n"
 				+ "      <h3><font color=\"navy\">Would you like to play a game?</font></h3>\r\n"
-				+ "      <p>Pick a number between <b>1</b> and <b>10</b>?\r\n"
+				+ "      <p>Pick a number between <b>0</b> and <b>10</b>?\r\n"
 				+ "      <p/>\r\n"
 				+ "         <a href=\"playthegame?guess=1\" class=\"btn btn-primary\"> 1 </a> &nbsp;\r\n"
 				+ "         <a href=\"playthegame?guess=2\" class=\"btn btn-danger\"> 2 </a> &nbsp;\r\n"
@@ -22,7 +22,7 @@ public class WebpageFactory {
 				+ "         <a href=\"playthegame?guess=8\" class=\"btn btn-light\"> 8 </a> &nbsp;\r\n"
 				+ "         <a href=\"playthegame?guess=9\" class=\"btn btn-primary\"> 9 </a> &nbsp;\r\n"
 				+ "         <a href=\"playthegame?guess=10\" class=\"btn btn-danger\">10</a> &nbsp;\r\n"
-				+ "      <div id=\"results\">The gameplay results will appear hear.</div>\r\n"
+				+ "      <div id=\"results\">The gameplay results will appear here.</div>\r\n"
 				+ "   </body>\r\n"
 				+ "</html>";
 		return page;
