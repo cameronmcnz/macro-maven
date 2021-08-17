@@ -3,15 +3,15 @@ pipeline {
 
     stages {
 	
-		stage('Log Java Git and Maven Info') {
+	stage('Log Java Git and Maven Info') {
             steps {
                 bat 'java -version'
-				bat 'git --version'
-				bat 'mvn --version'
+		bat 'git --version'
+		bat 'mvn --version'
             }
         }
 		
-		stage('Clone Remote Repository') {
+	stage('Clone Remote Repository') {
             steps {
                 git url: 'https://github.com/cameronmcnz/macro-maven.git', branch: 'main' 
             }
@@ -26,26 +26,26 @@ pipeline {
 
         }
 		
-		stage('Compile Code') {
+	stage('Compile Code') {
             steps {
                 bat 'mvn -f numberguesser/pom.xml compile'
             }
         }
 		
-		stage('Run Tests') {
+	stage('Run Tests') {
             steps {
                 bat 'mvn -f numberguesser/pom.xml test checkstyle:checkstyle findbugs:findbugs pmd:pmd'
             }
         }
 		
-		stage('Build Artifacts (WAR and JAR)') {
+	stage('Build Artifacts (WAR and JAR)') {
             steps {
                 bat 'mvn -f numberguesser/pom.xml package'
 				bat 'mvn -f numberguesser/pom.xml install tomcat7:exec-war-only'
             }
         }
 		
-		stage('Deploy to Tomcat') {
+	stage('Deploy to Tomcat') {
             steps {
                   def response = input message: 'Should we deploy to Tomcat? ', parameters: [choice(choices: 'Yes\nNo', description: 'Proceed or Abort?', name: 'Deployment')]
     
