@@ -1,0 +1,60 @@
+pipeline {
+    agent any
+
+    stages {
+	
+		stage('Log Java Git and Maven Info') {
+            steps {
+                bat 'java -version'
+				bat 'git --version'
+				bat 'mvn --version'
+            }
+        }
+		
+		stage('Clone Remote Repository') {
+            steps {
+                git url: 'https://github.com/cameronmcnz/macro-maven.git', branch: 'main' 
+            }
+        }
+
+        stage('Checkout & Merge Remotes') {
+            steps {
+                git branch: 'FEATURE/game_logic', url: 'https://github.com/cameronmcnz/macro-maven.git'
+                git branch: 'development', url: 'https://github.com/cameronmcnz/macro-maven.git'
+                bat "git merge FEATURE/game_logic"
+            }
+
+        }
+		
+		stage('Compile Code') {
+            steps {
+                bat 'mvn -f numberguesser/pom.xml compile'
+            }
+        }
+		
+		stage('Run Tests') {
+            steps {
+                bat 'mvn -f numberguesser/pom.xml test checkstyle:checkstyle findbugs:findbugs pmd:pmd'
+            }
+        }
+		
+		stage('Build Artifacts (WAR and JAR)') {
+            steps {
+                bat 'mvn -f numberguesser/pom.xml package'
+				bat 'mvn -f numberguesser/pom.xml install tomcat7:exec-war-only'
+            }
+        }
+		
+		stage('Deploy to Tomcat') {
+            steps {
+                  def response = input message: 'Should we deploy to Tomcat? ', parameters: [choice(choices: 'Yes\nNo', description: 'Proceed or Abort?', name: 'Deployment')]
+    
+                  if (response=="Yes") {
+                      bat 'copy numberguesser\\target\\numberguesser.war C:\\Software\\apache-tomcat-9.0.8\\webapps /Y'
+                  } else {
+                     echo "The WAR file was not deployed to the Tomcat server."
+                  }
+            }
+        }
+    }
+}
