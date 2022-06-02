@@ -11,6 +11,9 @@ cd C:\Program Files\Jenkins
 <br/>
 Then issue these commands depending on what you need to do:
 </br>
-jenkins stautus</br>
+jenkins status</br>
 jenkins start</br>
 jenkins stop</br>
+</br>
+</br>
+For Tomcat, the startup.bat and shutdown.bat files are in the C:\apache-tomcat-9.0.8\bin folder
