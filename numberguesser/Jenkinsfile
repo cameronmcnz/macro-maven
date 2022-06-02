@@ -47,13 +47,15 @@ pipeline {
 		
 	stage('Deploy to Tomcat') {
             steps {
-                  def response = input message: 'Should we deploy to Tomcat? ', parameters: [choice(choices: 'Yes\nNo', description: 'Proceed or Abort?', name: 'Deployment')]
+		script{
+                    def response = input message: 'Should we deploy WAR to Tomcat? ', parameters: [choice(choices: 'Yes\nNo', description: 'Proceed or Abort?', name: 'Deployment')]
     
-                  if (response=="Yes") {
-                      bat 'copy numberguesser\\target\\numberguesser.war C:\\Software\\apache-tomcat-9.0.8\\webapps /Y'
-                  } else {
-                     echo "The WAR file was not deployed to the Tomcat server."
-                  }
+                    if (response=="Yes") {
+                        bat 'copy numberguesser\\target\\numberguesser.war C:\\Software\\apache-tomcat-9.0.8\\webapps /Y'
+                    } else {
+                       echo "The WAR file was not deployed to the Tomcat server."
+                    }
+		}
             }
         }
     }
