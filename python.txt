@@ -54,7 +54,40 @@ The print method in Java does not append a new line character to the end of a pr
 
 However, if you do want to automatically append a new line character, Java offers a println statement as well.
 
+This approach to the print method in Java really shows the contrast between how Python works and how Java works.
 
+Many peole slag Java for being verbose, and they point to the System.out.println method as a prime example.
+
+Java is expressive. Python is not.
+
+In Python's print method, it is not clear where the print method goes.
+
+Does it print to a printer?
+Does it print to a log file?
+Does it print to a terminal window?
+
+Where does Python's print mehthod print to?
+
+It is this constant push in Python to hide important details that makes learning the language difficult.
+When new learners are asked where the print statement goes to, they are told that it's assumed they should know. It's not a nice way to introduce new developers to the language.
+
+On the other hand, Java's expressiveness makes what is happening completely clear.
+
+Want to print to the System's default output stream? Use System.out.print. What is happening is all clearly described in the code.
+
+Furthermore, if you want to only print to the console window and not pollute log files at runtime, Java has a simple way to do that:
+
+System.console.print
+
+How can this be done in Python?
+
+It's not actually clear from the API, as there's no simple method call like there is in Java.
+
+You'd likely have to import sys again and make a few calls into the components in that package, which would be multiple lines of code.
+
+Or perhaps you could override Python's print method again and continue to expand on the number of parameters that get passed to it.
+
+Something that is a simple, single line of code in Java quickly becomes a verbose, indimidating, indecipherable sequence of characters in Python.
 
 This is an example of Java being more expressive than Python
 
