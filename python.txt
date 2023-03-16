@@ -64,6 +64,7 @@ In Python's print method, it is not clear where the print method goes.
 
 Does it print to a printer?
 Does it print to a log file?
+Does it display in a Windows dialog box?
 Does it print to a terminal window?
 
 Where does Python's print mehthod print to?
@@ -87,6 +88,8 @@ You'd likely have to import sys again and make a few calls into the components i
 
 Or perhaps you could override Python's print method again and continue to expand on the number of parameters that get passed to it.
 
+IN JAVA WINDOWS COMPONENT
+
 Something that is a simple, single line of code in Java quickly becomes a verbose, indimidating, indecipherable sequence of characters in Python.
 
 Now anyone that understands Python programming knows that it's a huge anti-pattern to leave top level code inside a script file.
@@ -106,9 +109,6 @@ def main():
 
 if __name__ == "__main__":
    main()
-   
-
-
 
 
 An industry wide programming standard is to also pass command line arguments to the main method, so to keep the Hello World example in line with languages like C and C++, the final result would be:
@@ -123,7 +123,37 @@ if __name__ == "__main__":
 
 And that is what a simple, Hello World program in Python that compiles with industry standards and avoids teaching new learners deleteriously bad programming practices.
 
+In comparison, Hello World in Java remains one line of code:
 
+System.out.print("Hello World")
+
+The designers of the Java language were well aware of the dangers of allowing the execution of top level code on the importation of a script file, and placed appropriate firewalls in the language that stop this from happening. So Java does not require the same cryptic, intimidating, boilerplate code Python needs to be safe to run.
+
+So far, the Java code we have seen runs inside JShell, Java's scripting environment.
+
+Many Python developers object to a direct comparison between Java's REPL scripting environment and Python's REPL scripting environment, arguing that such an apples to apples comparision is unfair. Given how overwhelmingly easier Java is to write a Hello World program than Python is, their objections are understandable.
+
+Python developers prefer they Python scripting environment be compared instead to either Java applets that were deprected in 2011 or standalone Java programs that serve a different purpose than a REPL program. An unfair comparison certainly favors the Python community who dislike the conclusions that stem from an apples to apple comparison, but even when we compare a standalone Java program to a Python REPL program, Java comes out ahead.
+
+To create a Java application that does now allow top level scripts to run dangerously and unexpectedly on import, while also complying with industry standards like being able to access environment variables, the Java code would look like this:
+
+public class Hello World {
+  public static void main(String args[]){
+    System.out.print("Hello World");
+  }
+}
+
+In Java, no import statements are required, there are no cryptic if statements with peculiarly named variables like __name__ and __main__, and the code complies with accepted industry standards. 
+
+The code is familiar and approachable. While Python developers with years and years of experience still have no idea what Python's if __main__ = __name__ boilerplate does, any Java, C, C++ or Rust developer understands the purpose of the main method.
+
+Python is a very powerful language, but it is cryptic, it's syntax is esoteric, and the desire by the language designers to implement functionality they then developer need when in fact they really don't makes Python more confusing and difficult to learn than other popular programming languages.
+
+In comparison to Python, Java code is much more readable, signifianctly more expressive and far less verbose, all of which makes it easier to learn and more pleasurable to code with.
+
+It should be noted that both languages are great languages. Python has made a splash in Data Science, while Java is dominant in mobile, IoT, enterprise development, microservices, database driven applications and high-performance computing where threads must scale across multiple cores. (Python doesn't have this ability.)
+
+You really can't go wrong programming with either language.
 
 
    
