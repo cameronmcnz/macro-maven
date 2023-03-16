@@ -6,7 +6,7 @@ Python developers proud of their language's brevity and conciseness are quick to
 
 print("Hello World")
 
-Unfortunately, that's a big Python fail, because that line of code doesn't actually print out Hello World. Instead, it prints out:
+Unfortunately, that code is a big Python fail. That line of code doesn't actually print out Hello World. As anyone who understands Python will tell you, it actually prints out:
 
 Hello World\n
 
