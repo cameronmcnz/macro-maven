@@ -33,7 +33,35 @@ The first is to import sys and print directly to the output stream:
 import sys
 sys.stdout.write("Hello World")
 
-Many people are surprised to see the need to import the System object in Python, as in most other languages this is accessible by default. 
+Many people are surprised to see the need to import the System object in Python, as in most other like Java this System object is accessible by default. This just one example of how Python is a much more verbose language compared to Java, Rust or JavaScript.
+
+The second option is to override the unwanted behavior of the print method and write the print statements like this:
+
+print('Hello, world!', end="", flush=False)
+
+Both approaches create a bit of a dog's breakfast, but they are a necessity for a Python program to meet the simple requirements demand by the seminal 'Hello World' program.
+
+By the way, we are not done yet with the Python HelloWorld program. As it is, the program implements a few very dangerous anti-patterns and opens up a variety of security holes. So any responsible teacher would not allow a Python program written with such dangerous anti-patterns embedded in it stand without addressing these issues with students, but before we get to that, let's compare Python's Hello World to Java
+
+In Java, the prototypical Hello World is implemented in one line:
+
+System.out.print("Hello World")
+
+While the creators of Python take a dicatotiral view of how methods and properties should be used, Java does not.
+Java does not demand that every print statement end with a newline character like Python does. While Python treats developers like simpletons who need their hands held in order to do a print statement correctly, Java let's developers code their programs any way they like.
+
+The print method in Java does not append a new line character to the end of a print statement.
+
+However, if you do want to automatically append a new line character, Java offers a println statement as well.
+
+
+
+This is an example of Java being more expressive than Python
+
+
+
+
+
 
 Java, a less verbose and more expressive language doesn't have this problem, as it 
 
