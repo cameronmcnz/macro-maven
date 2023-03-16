@@ -1,0 +1,40 @@
+The seminal way to teach new developers to code is a new programming language is to have them create a simple Hello World program.
+
+The requirements couldn't be simpler - simply print out the text "Hello World" on a single line.
+
+Python developers proud of their language's brevity and conciseness are quick to show off their language's implementaiton of 'Hello World' which looks exactly like this:
+
+print("Hello World")
+
+Unfortunately, that's a big Python fail, because that line of code doesn't actually print out Hello World. Instead, it prints out:
+
+Hello World\n
+
+You might not see the extra \n character in a terminal window, but if you looked at the unicode the print statement generates, you'd see it there. 
+
+And if you looked at the implementation of Python's print method, you'd see that this newline sequence is always added.
+
+The problem is more pronounced if you write Hello World with two print calls like this:
+
+print("Hello")  //output is Hello\n
+print("World")  //output is Hello\n
+
+This displays out:
+
+Hello
+World
+
+How to fix the problem?
+
+To fix the problem of Python needlessly adding extra characters to the output, you can take one of two approaches.
+
+The first is to import sys and print directly to the output stream:
+
+import sys
+sys.stdout.write("Hello World")
+
+Many people are surprised to see the need to import the System object in Python, as in most other languages this is accessible by default. 
+
+Java, a less verbose and more expressive language doesn't have this problem, as it 
+
+
