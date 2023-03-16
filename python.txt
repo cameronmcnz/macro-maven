@@ -31,7 +31,7 @@ To fix the problem of Python needlessly adding extra characters to the output, y
 The first is to import sys and print directly to the output stream:
 
 import sys
-sys.stdout.write("Hello World")
+sys.stdout.write("Hello World")   
 
 Many people are surprised to see the need to import the System object in Python, as in most other like Java this System object is accessible by default. This just one example of how Python is a much more verbose language compared to Java, Rust or JavaScript.
 
