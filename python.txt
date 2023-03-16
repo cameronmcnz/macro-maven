@@ -89,6 +89,48 @@ Or perhaps you could override Python's print method again and continue to expand
 
 Something that is a simple, single line of code in Java quickly becomes a verbose, indimidating, indecipherable sequence of characters in Python.
 
+Now anyone that understands Python programming knows that it's a huge anti-pattern to leave top level code inside a script file.
+
+If this code was ever turned into a module and imported by another Python program, all the code written in the file would be executed.
+
+That's not only a huge security hole, but it can also cause massive performance problems if resources like database connections are opened or files on the local hard drive are accessed. As such, no 'Hello World' introduction to Python is complete without including the boilerplate code required to protect the learner from learning serious programming anti-pattersn up front.
+
+To address this, all code in a Python script should be put into a method that is invoked with the following boilerplate code:
+
+if __name__ == "__main__":
+
+When completed, the code looks as follows:
+
+def main():
+   print('Hello, world!', end="", flush=False)
+
+if __name__ == "__main__":
+   main()
+   
+
+
+
+
+An industry wide programming standard is to also pass command line arguments to the main method, so to keep the Hello World example in line with languages like C and C++, the final result would be:
+
+import sys
+
+def main(argv):
+   print('Hello, world!', end="", flush=False)
+
+if __name__ == "__main__":
+   main(sys.argv)
+
+And that is what a simple, Hello World program in Python that compiles with industry standards and avoids teaching new learners deleteriously bad programming practices.
+
+
+
+
+   
+
+
+
+
 This is an example of Java being more expressive than Python
 
 
